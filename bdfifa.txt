@@ -306,7 +306,8 @@ CREATE TABLE usuario (
     password VARCHAR(255) NOT NULL,
     email VARCHAR(50) NOT NULL,
     birthday DATE NOT NULL,
+    rol int not null,
     PRIMARY KEY (idUsuario) 
-); 
+);
 
 insert into usuario(nombreUsuario, passwordUsuario, emailUsuario, birthdayUsuario,account_type) values('admin', '123456', 'admin11@gmail.com', '2000-01-20', 'admin');
