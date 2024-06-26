@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es" id="html" class="is-preload  dark" data-class="is-preload  dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilospagina.css">
+
+    <title>Países</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="confederaciones.html">Confederación</a>
+                </li>
+                <li>
+                    <a href="paises.html">Países</a>
+                </li>
+                <li>
+                    <a href="ligas.html">Ligas</a>
+                </li>
+                <li>
+                    <a href="equipos.html">Equipos</a>
+                </li>
+                <li>
+                    <a href="jugadores.html">Jugadores</a>
+                </li>
+
+                <li>
+                    <div class="right">
+                        <a href="login.html" class="login">Iniciar Sesión</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <section>
+            <h1 class="ellipsis">Países</h1>
+        </section>
+    </header>
+    <main>
+        <article>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Nombre del País</th>
+                        <th>Abreviación del Pais</th>
+                    </tr>
+                </thead>
+                <tbody id="paises-list"></tbody>
+            </table>
+            </div>
+             <div id="pagination" style="text-align: center; margin-top: 20px;">
+                <button id="prev-btn">Anterior</button>
+                <span id="page-number">1</span>
+                <button id="next-btn">Siguiente</button>
+            </div>
+        </article>
+        <script>
+            let currentPage = 1;
+            const rowsPerPage = 50; 
+
+            window.onload = function () {
+                loadPage(currentPage);
+
+                document.getElementById('prev-btn').addEventListener('click', function () {
+                    if (currentPage > 1) {
+                        currentPage--;
+                        loadPage(currentPage);
+                    }
+                });
+
+                document.getElementById('next-btn').addEventListener('click', function () {
+                    currentPage++;
+                    loadPage(currentPage);
+                });
+            };
+
+            function loadPage(page) {
+                fetch('/paises?page=${page}&limit=${rowsPerPage}')
+                    .then(response => response.json())
+                    .then(data => {
+                        var paisesList = document.getElementById('paises-list');
+                        paisesList.innerHTML = '';
+                        data.forEach(function (paises) {
+                            var row = document.createElement('tr');
+                            row.innerHTML =
+                                '<td><img src="images/paises/' + paises.IdPais + ".png" + '" width="128" height="128"></td>' +
+                                '<td>' + paises.NombrePais + '</td>' +
+                                '<td>' + paises.AbreviacionPais + '</td>';
+                            paisesList.appendChild(row);
+                        });
+                        document.getElementById('page-number').innerText = page;
+                    });
+            };
+        </script>
+
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es" id="html" class="is-preload  dark" data-class="is-preload  dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilospagina.css">
+
+    <title>Jugadores</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="confederaciones.html">Confederación</a>
+                </li>
+                <li>
+                    <a href="paises.html">Países</a>
+                </li>
+                <li>
+                    <a href="ligas.html">Ligas</a>
+                </li>
+                <li>
+                    <a href="equipos.html">Equipos</a>
+                </li>
+                <li>
+                    <a href="jugadores.html">Jugadores</a>
+                </li>
+
+                <li>
+                    <div class="right">
+                        <a href="login.html" class="login">Iniciar Sesión</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <section>
+            <h1 class="ellipsis">Jugadores</h1>
+        </section>
+    </header>
+    <main>
+        <article>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Pais</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th>Valoracion</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="jugadores-list"></tbody>
+            </table>
+            </div>
+            <div id="pagination" style="text-align: center; margin-top: 20px;">
+                <button id="prev-btn">Anterior</button>
+                <span id="page-number">1</span>
+                <button id="next-btn">Siguiente</button>
+            </div>
+        </article>
+        <script>
+            let currentPage = 1;
+            const rowsPerPage = 50;
+
+            window.onload = function () {
+                loadPage(currentPage);
+
+                document.getElementById('prev-btn').addEventListener('click', function () {
+                    if (currentPage > 1) {
+                        currentPage--;
+                        loadPage(currentPage);
+                    }
+                });
+
+                document.getElementById('next-btn').addEventListener('click', function () {
+                    currentPage++;
+                    loadPage(currentPage);
+                });
+            };
+
+            function loadPage(page) {
+                fetch('/jugadores?page=${page}&limit=${rowsPerPage}')
+                    .then(response => response.json())
+                    .then(data => {
+                        var jugadoresList = document.getElementById('jugadores-list');
+                        jugadoresList.innerHTML = '';
+                        data.forEach(function (jugadores) {
+                            var row = document.createElement('tr');
+                            row.innerHTML =
+                                '<td><img src="images/jugadores/' + jugadores.idjugador + ".png" + '" width="120" height="120"></td>' +
+                                '<td>' + jugadores.nombreJugador + " " + jugadores.apellidoJugador + '</td>' +
+                                '<td>' + jugadores.NombrePais + '</td>' +
+                                '<td>' + jugadores.cumpleJugador + '</td>' +
+                                '<td>' + jugadores.valoracionJugador + '</td>'
+
+                            jugadoresList.appendChild(row);
+                        });
+                        document.getElementById('page-number').innerText = page;
+                    });
+            };
+
+
+        </script>
+        <script>
+        
+            // Función para eliminar una película
+            function eliminarJugadores(id) {
+                fetch('/eliminar_jugadores/' + id, {
+                    method: 'DELETE'
+                })
+                .then(function(response) {
+                    if (response.ok) {
+                        console.log('Jugador eliminado correctamente.');
+                        // Actualizar la tabla después de eliminar la película
+                        window.location.reload();
+                    } else {
+                        console.error('Error al eliminar Jugador.');
+                    }
+                })
+                .catch(function(error) {
+                    console.error('Error en la solicitud:', error);
+                });
+            }
+        
+        </script>
+        <script>
+            // Función para modificar una película
+            function modificarJugadores(id) {
+                // Redirigir a la página de modificación de película con el ID correspondiente
+                window.location.href = '/modificar-jugador.html?id=' + id;
+            }
+        </script>
+    
+
+    </main>
+</body>
+
+</html>

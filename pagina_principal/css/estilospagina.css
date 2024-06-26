@@ -1,0 +1,120 @@
+html.dark {
+    background-color: #202124;
+    color: #bdc1c6;
+    color-scheme: dark;
+}
+
+html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, PingFang SC, Hiragino Sans GB, Microsoft YaHei, "\5FAE\8F6F\96C5\9ED1", helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, Arial, sans-serif;
+    font-size: 100%;
+    line-height: 1.5;
+    background-color: white;
+    color: black;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth
+}
+
+header {
+    background-color: #0027c2;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 5%), 0 0 0 1px rgb(0 0 0 / 5%)
+}
+
+header>nav:first-child {
+    background-color: #003ecd;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 5%), 0 0 0 1px rgb(0 0 0 / 5%)
+}
+
+header>nav>ul,
+header>section,
+footer>section {
+    position: relative;
+    margin: 0 auto;
+    width: 1258px
+}
+
+header>section {
+    padding: 2.3em 0 0;
+    margin: 0 auto;
+    height: 88px
+}
+
+nav {
+    margin: 0
+}
+
+nav>ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+nav>ul>li {
+    display: inline-block;
+    margin: .25em 1em .25em 0;
+    white-space: nowrap
+}
+
+nav>ul>li:last-child {
+    margin-right: 0
+}
+
+.nav-tabs li {
+    margin-bottom: 0;
+    line-height: 2.3em
+}
+
+main {
+    margin: 2em auto;
+    display: flex;
+    justify-content: space-between;
+    width: 1258px
+}
+
+header>nav>ul .right {
+    position: absolute;
+    top: .25em;
+    right: 0
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+    vertical-align: top;
+    position: relative;
+    table-layout: fixed
+}
+
+.border-less td,
+.border-less th {
+    border: none !important
+}
+
+table td:first-child,
+table th:first-child {
+    padding-left: 0
+}
+
+table tbody:last-child tr:last-child td {
+    border-bottom: 0
+}
+
+table th {
+    font-weight: 500
+}
+table td,table th {
+    padding: .75em .25em;
+    vertical-align: top;
+    border-bottom: 1px solid #f1f3f5;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+body>footer {
+    margin-top: 5rem;
+    padding: 1.5em 0;
+    font-size: .9rem;
+    color: #adb5bd
+}

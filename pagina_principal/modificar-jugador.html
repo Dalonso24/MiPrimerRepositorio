@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es" id="html" class="is-preload  dark" data-class="is-preload  dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilospagina.css">
+    <title>Modificar-Jugadores</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="confederaciones.html">Confederación</a>
+                </li>
+                <li>
+                    <a href="paises.html">Países</a>
+                </li>
+                <li>
+                    <a href="ligas.html">Ligas</a>
+                </li>
+                <li>
+                    <a href="equipos.html">Equipos</a>
+                </li>
+                <li>
+                    <a href="jugadoresAdmin.html">Gestionar Jugadores</a>
+                </li>
+                <li>
+                    <a href="agregar-jugador.html">Agregar Jugadores</a>
+                </li>
+                <li>
+                    <div class="right">
+                        <a href="index.html" class="login">Cerrar Sesión</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <section>
+            <h1 class="ellipsis">Modificar-Jugadores</h1>
+        </section>
+    </header>
+
+    <main>
+        <h2>Modificar Jugador</h2>
+        <form id="modificar-form" action="/modificar_jugadores" method="POST">
+            <input type="hidden" id="jugador-id" name="id">
+            <div>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div>
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+            </div>
+            <div>
+                <label for="pais">País Numero:</label>
+                <input type="number" id="pais" name="pais" required>
+            </div>
+            <div>
+                <label for="fecha">Fecha de nacimiento:</label>
+                <input type="date" id="fecha" name="fecha" required> 
+            </div>
+            <div>
+                <label for="valoracion">Valoracion:</label>
+                <input type="number" id="valoracion" name="valoracion" required>
+            </div>
+            <input type="submit" value="Enviar">
+        </form>
+    </main>
+    <script>
+        // Obtener el ID de la película de la URL
+        const urlParams = new URLSearchParams(window.location.search); // Crea un objeto URLSearchParams para trabajar con los parámetros de la URL
+        const jugadorId = urlParams.get('id'); // Obtiene el valor del parámetro 'id' de la URL
+        // Obtener el formulario y los campos
+        const modificarForm = document.getElementById('modificar-form'); // Obtiene el formulario por su ID
+        const idInput = document.getElementById('jugador-id'); // Obtiene el campo oculto de ID
+        const nombreInput = document.getElementById('nombre'); // Obtiene el campo de nombre
+        const apellidoInput = document.getElementById('apellido'); // Obtiene el campo de apellido
+        const fechaInput = document.getElementById('fecha'); // Obtiene el campo de fecha
+        const paisInput = document.getElementById('pais'); // Obtiene el campo de pais
+        const valoracionInput = document.getElementById('valoracion'); // Obtiene el campo de valoracion 
+
+        // Rellenar el formulario con los datos de la película correspondiente
+        fetch('/jugadores/' + jugadorId) // Realiza una solicitud para obtener los datos de la película con el ID especificado
+            .then(response => response.json()) // Convierte la respuesta en un objeto JSON
+            .then(jugadores => {
+                // Asigna los datos obtenidos a los campos del formulario
+                idInput.value = jugadores.idJugador;
+                nombreInput.value = jugadores.nombreJugador;
+                apellidoInput.value = jugadores.apellidoJugador;
+                paisInput.value = jugadores.paisJugador;
+                fechaInput.value = jugadores.cumpleJugador.split('T')[0]; // Convierte la fecha a formato "YYYY-MM-DD"
+                valoracionInput.value = jugadores.valoracionJugador;
+            })
+        // Muestra un error en la consola si la solicitud falla
+    </script>
+</body>
+
+</html>

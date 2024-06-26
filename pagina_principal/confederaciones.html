@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es" id="html" class="is-preload  dark" data-class="is-preload  dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilospagina.css">
+    <title>Confederaciones</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="confederaciones.html">Confederación</a>
+                </li>
+                <li>
+                    <a href="paises.html">Países</a>
+                </li>
+                <li>
+                    <a href="ligas.html">Ligas</a>
+                </li>
+                <li>
+                    <a href="equipos.html">Equipos</a>
+                </li>
+                <li>
+                    <a href="jugadores.html">Jugadores</a>
+                </li>
+
+                <li>
+                    <div class="right">
+                        <a href="login.html" class="login">Iniciar Sesión</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <section>
+            <h1 class="ellipsis">Confederaciones</h1>
+        </section>
+    </header>
+    <main>
+        <article>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Nombre Completo</th>
+                        <th>Continente</th>
+                        <th>Imagen</th>
+                    </tr>
+                </thead>
+                <tbody id="confederaciones-list"></tbody>
+            </table>
+        </article>
+        <script>
+            window.onload = function () {
+                fetch('/confederaciones')
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+                        var confederacionesList = document.getElementById('confederaciones-list');
+                        data.forEach(function (confederaciones) {
+                            var row = document.createElement('tr');
+                            row.innerHTML = 
+                                '<td>' + confederaciones.AcronimoConfederacion + '</td>' +
+                                '<td>' + confederaciones.FullNombreConfederacion + '</td>' +
+                                '<td>' + confederaciones.ContinenteConfederacion + '</td>';
+
+                            confederacionesList.appendChild(row);
+                        });
+                    });
+            };
+        </script>
+    </main>
+
+</body>
+
+</html>

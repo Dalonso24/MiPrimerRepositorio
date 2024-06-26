@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es" id="html" class="is-preload  dark" data-class="is-preload  dark">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar-Jugadores</title>
+    <link rel="stylesheet" href="css/estilospagina.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="confederaciones.html">Confederación</a>
+                </li>
+                <li>
+                    <a href="paises.html">Países</a>
+                </li>
+                <li>
+                    <a href="ligas.html">Ligas</a>
+                </li>
+                <li>
+                    <a href="equipos.html">Equipos</a>
+                </li>
+                <li>
+                    <a href="jugadoresAdmin.html">Gestionar Jugadores</a>
+                </li>
+                <li>
+                    <a href="agregar-jugador.html">Agregar Jugadores</a>
+                </li>
+                <li>
+                    <div class="right">
+                        <a href="index.html" class="login">Cerrar Sesión</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <section>
+            <h1 class="ellipsis">Países</h1>
+        </section>
+    </header>
+
+    <h2>Agregar Jugador</h2>
+    <main>
+        <form id="formulario-jugador" action="/guardar_jugadores" method="post">
+            <input type="hidden" id="jugador-id" name="id">
+            <div>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div>
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+            </div>
+            <div>
+                <label for="pais">País Numero:</label>
+                <input type="number" id="pais" name="pais" required>
+            </div>
+            <div>
+                <label for="fecha">Fecha de nacimiento:</label>
+                <input type="date" id="fecha" name="fecha" required>
+                <!-- Campo de entrada de fecha para la fecha de estreno, obligatorio -->
+            </div>
+            <div>
+                <label for="valoracion">Valoracion:</label>
+                <input type="number" id="valoracion" name="valoracion" required>
+            </div>
+            <input type="submit" value="Enviar">
+    </main>
+    </form>
+
+
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es" id="html" class="is-preload  dark" data-class="is-preload  dark">
+
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilospagina.css">
+    <title>Ligas</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="confederaciones.html">Confederación</a>
+                </li>
+                <li>
+                    <a href="paises.html">Países</a>
+                </li>
+                <li>
+                    <a href="ligas.html">Ligas</a>
+                </li>
+                <li>
+                    <a href="equipos.html">Equipos</a>
+                </li>
+                <li>
+                    <a href="jugadores.html">Jugadores</a>
+                </li>
+
+                <li>
+                    <div class="right">
+                        <a href="login.html" class="login">Iniciar Sesión</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <section>
+            <h1 class="ellipsis">Ligas</h1>
+        </section>
+    </header>
+    <main>
+        <article>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Nombre de la Liga</th>
+                        <th>País</th>
+                        <th>División</th>
+                    </tr>
+                </thead>
+                <tbody id="ligas-list"></tbody>
+            </table>
+        </article>
+        <script>
+            window.onload = function () {
+                fetch('/ligas')
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+                        var ligasList = document.getElementById('ligas-list');
+                        data.forEach(function (ligas) {
+                            var row = document.createElement('tr');
+                            row.innerHTML = 
+                                '<td><img src="images/ligas/' + ligas.IdLiga + ".png" + '" width="128" height="128"></td>' +
+                                '<td>' + ligas.NombreLiga + '</td>' +
+                                '<td>' + ligas.IdPais + '</td>' +
+                                '<td>' + ligas.JerarquiaLiga + '</td>';
+                                ligasList.appendChild(row);
+                        });
+                    });
+            };
+        </script>
+    </main>
+</body>
+</html>

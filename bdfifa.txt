@@ -1,0 +1,312 @@
+Create Database fifa;
+
+Use fifa;
+
+Create Table confederaciones(
+	IdConfederacion int not null auto_increment,
+    AcronimoConfederacion varchar(20) not null,
+    FullNombreConfederacion varchar(100),
+	ContinenteConfederacion varchar(20)not null,
+    primary key (IdConfederacion)
+);
+
+insert into confederaciones(IdConfederacion, AcronimoConfederacion, FullNombreConfederacion, ContinenteConfederacion) values(1, 'UEFA', 'Union of European Football Associations', 'Europa');
+insert into confederaciones(IdConfederacion, AcronimoConfederacion, FullNombreConfederacion, ContinenteConfederacion) values(2, 'CAF', 'Confederation of African Football', 'África');
+insert into confederaciones(IdConfederacion, AcronimoConfederacion, FullNombreConfederacion, ContinenteConfederacion) values(3, 'CONMEBOL', 'Confederación Sudamericana de Fútbol', 'Sudamérica');
+insert into confederaciones(IdConfederacion, AcronimoConfederacion, FullNombreConfederacion, ContinenteConfederacion) values(4, 'AFC', 'Asian Football Confederation', 'Asia');
+insert into confederaciones(IdConfederacion, AcronimoConfederacion, FullNombreConfederacion, ContinenteConfederacion) values(5, 'OFC', 'Oceania Football Confederation', 'Oceania');
+insert into confederaciones(IdConfederacion, AcronimoConfederacion, FullNombreConfederacion, ContinenteConfederacion) values(6, 'CONCACAF', 'Confederación de Norteamérica, Centroamérica y el Caribe de Fútbol', 'Norteamérica');
+insert into confederaciones(IdConfederacion, AcronimoConfederacion, FullNombreConfederacion, ContinenteConfederacion) values(7, 'Internacional', 'Internacional', 'Ninguno');
+
+Create Table paises(
+	IdPais int not null auto_increment,
+    NombrePais varchar(30) not NULL,
+    AbreviacionPais varchar(3) not NULL, 
+    IdConfederacion int not null,
+    primary key (IdPais),
+    foreign key (IdConfederacion) REFERENCES confederaciones(IdConfederacion)
+); 
+
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(1,'Albania', 'ALB', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(2, 'Andorra', 'AND', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(3, 'Armenia', 'ARM', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(4, 'Austria', 'AUT', 1); 
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(5, 'Azerbaiyán', 'AZE', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(6, 'Bielorrusia', 'BLR', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(7, 'Bélgica', 'BEL', 1); 
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(8, 'Bosnia-Herzegovina', 'BIH', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(9, 'Bulgaria', 'BUL', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(10, 'Croacia', 'CRO', 1);
+
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(11, 'Chipre', 'CYP', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(12, 'Chequía', 'CZE', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(13, 'Dinamarca', 'DEN', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(14, 'Inglaterra', 'ENG', 1); 
+
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(15, 'Montenegro', 'MNE', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(16, 'Islas Feroe', 'FRO', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(17, 'Finlandia', 'FIN', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(18, 'Francia', 'FRA', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(19, 'Macedonia del Norte', 'MKD', 1); 
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(20, 'Georgia', 'GEO', 1);
+
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(21, 'Alemania', 'GER', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(22, 'Grecia', 'GRE', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(23, 'Hungría', 'HUN', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(24, 'Islandia', 'ISL', 1); 
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(25, 'Irlanda', 'IRL', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(26, 'Israel', 'ISR', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(27, 'Italia', 'ITA', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(28, 'Letonia', 'LVA', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(29, 'Liechtenstein', 'LIE', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(30, 'Lituania', 'LTU', 1);
+
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(31, 'Luxemburgo', 'LUX', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(32, 'Malta', 'MLT', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(33, 'Moldavia', 'MDA', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(34, 'Paises Bajos', 'NED', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(35, 'Irlanda del Norte', 'NIR', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(36, 'Noruega', 'NOR', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(37, 'Polonia', 'POL', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(38, 'Portugal', 'POR', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(39, 'Rumania', 'ROU', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(40, 'Rusia', 'RUS', 1);
+
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(41, 'San Marino', 'SMR', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(42, 'Escocia', 'SCO', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(43, 'Eslovaquia', 'SVK', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(44, 'Eslovenia', 'SVN', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(45, 'España', 'ESP', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(46, 'Suecia', 'SWE', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(47, 'Suiza', 'SUI', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(48, 'Turquía', 'TUR', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(49, 'Ucrania', 'UKR', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(50, 'Gales', 'WAL', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(51, 'Serbia', 'SRB', 1);
+
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(52, 'Argentina', 'ARG', 3);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(53, 'Bolivia', 'BOL', 3);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(54, 'Brasil', 'BRA', 3);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(55, 'Chile', 'CHI', 3);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(56, 'Colombia', 'COL', 3);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(57, 'Ecuador', 'ECU', 3);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(58, 'Paraguay', 'PAR', 3);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(59, 'Perú', 'PER', 3);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(60, 'Uruguay', 'URU', 3);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(61, 'Venezuela', 'VEN', 3);
+
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(62, 'Anguila', 'AIA', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(63, 'Antigua y Barbuda', 'ATG', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(64, 'Aruba', 'ARU', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(65, 'Bahamas', 'BAH', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(66, 'Barbados', 'BRB', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(67, 'Belice', 'BLZ', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(68, 'Bermudas', 'BER', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(69, 'Islas Vírgenes Británicas', 'VGB', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(70, 'Canada', 'CAN', 6);
+
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(71, 'Islas Caimán', 'CAY', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(72, 'Costa Rica', 'CRC', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(73, 'Cuba', 'CUB', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(74, 'Dominica', 'DMA', 6);
+
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(75, 'Internacional', 'INT', 7);
+
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(76, 'El Salvador', 'SLV', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(77, 'Granada', 'GRN', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(78, 'Guatemala', 'GUA', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(79, 'Guyana', 'GUY', 6);
+
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(80, 'Haití', 'HAI', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(81, 'Honduras', 'HON', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(82, 'Jamaica', 'JAM', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(83, 'México', 'MEX', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(84, 'Montserrat', 'MSR', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(85, 'Curazao', 'CUW', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(86, 'Nicaragua', 'NCA', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(87, 'Panamá', 'PAN', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(88, 'Puerto Rico', 'PUR', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(89, 'San Cristóbal y Nieves', 'SKN', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(90, 'Santa Lucía', 'LCA', 6);
+
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(91, 'San Vicente y las Granadinas', 'VIN', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(92, 'Surinam', 'SUR', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(93, 'Trinidad y Tobago', 'TRI', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(94, 'Islas Turcas y Caicos', 'TCA', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(95, 'Estados Unidos', 'USA', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(96, ' Islas Vírgenes (EE.UU)', 'VIR', 6);
+ 
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(97, 'Argelia', 'ALG', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(98, 'Angola', 'ANG', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(99, 'Benín', 'BEN', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(100, 'Botsuana', 'BOT', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(101, 'Burkina Faso', 'BFA', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(102, 'Burundi', 'BDI', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(103, 'Camerún', 'CMR', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(104, 'Cabo Verde', 'CPV', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(105, 'Rep. Centroafricana', 'CTA', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(106, 'Chad', 'CHA', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(107, 'Congo', 'CGO', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(108, 'Costa de Marfil', 'CIV', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(109, 'Yibuti', 'DJI', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(110, 'R.D. del Congo', 'COD', 2); 
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(111, 'Egipto', 'EGY', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(112, 'Guinea Ecuatorial', 'EQG', 2); 
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(113, 'Eritrea', 'ERI', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(114, 'Etiopía', 'ETH', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(115, 'Gabón', 'GAB', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(116, 'Gambia', 'GAM', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(117, 'Ghana', 'GHA', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(118, 'Guinea', 'GUI', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(119, 'Guinea-Bisáu', 'GNB', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(120, 'Kenia', 'KEN', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(121, 'Lesoto', 'LES', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(122, 'Liberia', 'LBR', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(123, 'Libia', 'LBY', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(124, 'Madagascar', 'MAD', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(125, 'Malaui', 'MWI', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(126, 'Malí', 'MLI', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(127, 'Mauritania', 'MTN', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(128, 'Mauricio', 'MRI', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(129, 'Marruecos', 'MAR', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(130, 'Mozambique', 'MOZ', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(131, 'Namibia', 'NAM', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(132, 'Níger', 'NIG', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(133, 'Nigeria', 'NGA', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(134, 'Ruanda', 'RWA', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(135, 'Santo Tomé y Príncipe', 'STP', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(136, 'Senegal', 'SEN', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(137, 'Seychelles', 'SEY', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(138, 'Sierra Leona', 'SLE', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(139, 'Somalia', 'SOM', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(140, 'Sudáfrica', 'RSA', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(141, 'Sudán', 'SDN', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(142, 'Suazilandia', 'SWZ', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(143, 'Tanzania', 'TAN', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(144, 'Togo', 'TOG', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(145, 'Túnez', 'TUN', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(146, 'Uganda', 'UGA', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(147, 'Zambia', 'ZAM', 2);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(148, 'Zimbabue', 'ZIM', 2);
+
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(149, 'Afganistán', 'AFG', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(150, 'Baréin', 'BHR', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(151, 'Bangladés', 'BAN', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(152, 'Bután', 'BHU', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(153, 'Brunéi', 'BRU', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(154, 'Camboya', 'CAM', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(155, 'China', 'CHN', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(157, 'Guam', 'GUM', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(158, 'Hong Kong', 'HKG', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(159, 'India', 'IND', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(160, 'Indonesia', 'IDN', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(161, 'Irán', 'IRN', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(162, 'Irak', 'IRQ', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(163, 'Japón', 'JPN', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(164, 'Jordania', 'JOR', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(165, 'Kazajistán', 'KAZ', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(166, 'RPD Corea', 'PRK', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(167, 'República de Corea', 'KOR', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(168, 'Kuwait', 'KUW', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(169, 'Kirguistán', 'KGZ', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(170, 'Laos', 'LAO', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(171, 'Líbano', 'LBN', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(172, 'Macao', 'MAC', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(173, 'Malasia', 'MAS', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(174, 'Maldivas', 'MDV', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(175, 'Mongolia', 'MNG', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(176, 'Myanmar', 'MYA', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(177, 'Nepal', 'NEP', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(178, 'Omán', 'OMA', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(179, 'Pakistán', 'PAK', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(180, 'Palestina', 'PLE', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(181, 'Filipinas', 'PHI', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(182, 'Catar', 'QAT', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(183, 'Arabia Saudita', 'KSA', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(184, 'Singapur', 'SGP', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(185, 'Sri Lanka', 'SRI', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(186, 'Siria', 'SYR', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(187, 'Tayikistán', 'TJK', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(188, 'Tailandia', 'THA', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(189, 'Turkmenistán', 'TKM', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(190, 'Emiratos Árabes Unidos', 'UAE', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(191, 'Uzbekistán', 'UZB', 4); 
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(192, 'Vietnam', 'VIE', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(193, 'Yemen', 'YEM', 4);
+
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(194, 'Samoa Americana', 'ASA', 5);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(195, 'Australia', 'AUS', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(196, 'Islas Cook', 'COK', 5);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(197, 'Fiyi', 'FIJ', 5);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(198, 'Nueva Zelanda', 'NZL', 5);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(199, 'Papúa Nueva Guinea', 'PNG', 5);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(200, 'Samoa', 'SAM', 5);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(201, 'Islas Salomón', 'SOL', 5);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(202, 'Polinesia Francesa', 'TAH', 5);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(203, 'Tonga', 'TGA', 5);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(204, 'Vanuatu', 'VAN', 5);
+
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(205, 'Gibraltar', 'GIB', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(206, 'Groenlandia', 'GRN', 7);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(207, 'República Dominicana', 'DOM', 6);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(208, 'Estonia', 'EST', 1);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(210, 'Agentes libres', 'FAC', 7);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(213, 'Taipéi', 'TAI', 4);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(215, 'Nueva Caledonia', 'NCL', 5);
+
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(1028, 'Kiribati', 'KIR', 7);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(1033, 'Islas Marshall', 'MRS', 7);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(1035, 'Micronesia', 'FSM', 7);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(1037, 'Mónaco', 'MON', 7);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(1038, 'Nauru', 'NAU', 7);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(1043, 'Palaos', 'PAL', 7);
+insert into paises(IdPais, NombrePais, AbreviacionPais, IdConfederacion) values(1065, 'Tuvalu', 'TUV', 7);
+
+Create Table ligas(
+	IdLiga int not null auto_increment,
+    NombreLiga varchar(30) not NULL,
+    JerarquiaLiga int(2) not NULL, 
+    IdPais int not null,
+    primary key (IdLiga),
+    foreign key (IdPais) REFERENCES paises(IdPais)
+); 
+
+insert into ligas(IdLiga, NombreLiga, JerarquiaLiga, IdPais) values(13, 'Premier League', 1, 14);
+ 
+
+CREATE TABLE equipos (
+    IdEquipo int NOT NULL AUTO_INCREMENT,
+    NombreEquipo varchar(25) NOT NULL,
+    YearEquipo int(4) NOT NULL,
+    LigaPerteneciente INT,
+    EsSeleccion BOOLEAN NOT NULL,
+    PaisPerteneciente INT NOT NULL, 
+    PRIMARY KEY (IdEquipo),
+    FOREIGN KEY (LigaPerteneciente) REFERENCES ligas(IdLiga),
+    FOREIGN KEY (PaisPerteneciente) REFERENCES paises(IdPais)
+);
+insert into equipos(IdEquipo, NombreEquipo, YearEquipo, LigaPerteneciente, EsSeleccion, PaisPerteneciente) values(1, 'Arsenal', 1886, 13, 0, 14);
+
+CREATE TABLE jugadores (
+    idJugador INT NOT NULL AUTO_INCREMENT,
+    nombreJugador VARCHAR(25) NOT NULL,
+	apellidoJugador VARCHAR(25) NOT NULL, 
+	paisJugador int NOT NULL,
+	cumpleJugador DATE Not null,
+	valoracionJugador int(2),
+    PRIMARY KEY (idJugador),
+    FOREIGN KEY (paisJugador) REFERENCES paises(IdPais)
+); 
+insert into jugadores(idJugador, nombreJugador, apellidoJugador, paisJugador, cumpleJugador, valoracionJugador) values(1, 'Bukayo', 'Saka', 14, '2001-09-05', 86);
+ 
+
+CREATE TABLE usuario (
+    idUsuario INT NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(25) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    birthday DATE NOT NULL,
+    PRIMARY KEY (idUsuario) 
+); 
+
+insert into usuario(nombreUsuario, passwordUsuario, emailUsuario, birthdayUsuario,account_type) values('admin', '123456', 'admin11@gmail.com', '2000-01-20', 'admin');
